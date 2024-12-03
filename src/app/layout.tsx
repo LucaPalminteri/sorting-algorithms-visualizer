@@ -24,7 +24,9 @@ export const metadata: Metadata = {
       url: "https://github.com/sorting-visualizer",
     },
   ],
-  themeColor: "#3b82f6",
+  // TODO: change for Viewport Next object
+  // https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+  //themeColor: "#3b82f6",
   openGraph: {
     title: "Sorting Algorithms Visualizer",
     description:
@@ -39,7 +41,9 @@ export const metadata: Metadata = {
     description:
       "Interactive visualization of various sorting algorithms including Bubble Sort, Selection Sort, Insertion Sort, and more.",
   },
-  viewport: "width=device-width, initial-scale=1.0",
+  // TODO: change for Viewport Next object
+  // https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+  //viewport: "width=device-width, initial-scale=1.0",
   icons: {
     icon: "/favicon.ico",
   },
