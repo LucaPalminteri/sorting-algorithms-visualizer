@@ -50,12 +50,7 @@ export async function timSort(
   }
 
   // Merge two sorted subarrays
-  async function merge(
-    arr: ArrayBar[],
-    left: number,
-    mid: number,
-    right: number,
-  ) {
+  async function merge(arr: ArrayBar[], left: number, mid: number, right: number) {
     const leftArr = arr.slice(left, mid + 1);
     const rightArr = arr.slice(mid + 1, right + 1);
 

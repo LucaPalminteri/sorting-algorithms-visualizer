@@ -2,12 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import AlgorithmGrid from "../components/AlgorithmGrid";
+import { formatAlgorithmName } from "@/utils/arrayUtils";
 
 export default function Home() {
   const router = useRouter();
 
   const handleSelectAlgorithm = (algorithmName: string) => {
-    router.push(`/${algorithmName.toLowerCase().replace(/\s+/g, "-")}`);
+    const formattedName = formatAlgorithmName(algorithmName);
+    router.push(`/${formattedName}`);
   };
 
   return (

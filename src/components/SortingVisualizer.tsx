@@ -11,8 +11,7 @@ import { bubbleSort } from "../algorithms/bubbleSort";
 import { selectionSort } from "../algorithms/selectionSort";
 import { insertionSort } from "../algorithms/insertionSort";
 import { mergeSort } from "@/algorithms/mergeSort";
-import { ArrayBar } from "../types";
-import { AlgorithmInfo } from "../data/algorithms";
+import { AlgorithmInfo, ArrayBar } from "../types";
 import { quickSort } from "@/algorithms/quickSort";
 import { heapSort } from "@/algorithms/heapSort";
 import { introSort } from "@/algorithms/introSort";
@@ -25,10 +24,7 @@ interface SortingVisualizerProps {
   algorithmInfo: AlgorithmInfo;
 }
 
-const SortingVisualizer: React.FC<SortingVisualizerProps> = ({
-  algorithm,
-  algorithmInfo,
-}) => {
+const SortingVisualizer: React.FC<SortingVisualizerProps> = ({ algorithm, algorithmInfo }) => {
   const [array, setArray] = useState<ArrayBar[]>(
     generateRandomArray(ARRAY_SIZE).map((value) => ({
       value,
@@ -39,8 +35,7 @@ const SortingVisualizer: React.FC<SortingVisualizerProps> = ({
   );
   const [isSorting, setIsSorting] = useState(false);
   const [speed, setSpeed] = useState(1);
-  const { stats, resetStats, incrementComparisons, incrementSwaps } =
-    useSortingStats();
+  const { stats, resetStats, incrementComparisons, incrementSwaps } = useSortingStats();
 
   const handleReset = useCallback(() => {
     const newArray = generateRandomArray(ARRAY_SIZE).map((value) => ({
@@ -62,76 +57,28 @@ const SortingVisualizer: React.FC<SortingVisualizerProps> = ({
 
     switch (algorithm) {
       case "bubble-sort":
-        await bubbleSort(
-          array,
-          setArray,
-          incrementComparisons,
-          incrementSwaps,
-          delay,
-        );
+        await bubbleSort(array, setArray, incrementComparisons, incrementSwaps, delay);
         break;
       case "selection-sort":
-        await selectionSort(
-          array,
-          setArray,
-          incrementComparisons,
-          incrementSwaps,
-          delay,
-        );
+        await selectionSort(array, setArray, incrementComparisons, incrementSwaps, delay);
         break;
       case "insertion-sort":
-        await insertionSort(
-          array,
-          setArray,
-          incrementComparisons,
-          incrementSwaps,
-          delay,
-        );
+        await insertionSort(array, setArray, incrementComparisons, incrementSwaps, delay);
         break;
       case "merge-sort":
-        await mergeSort(
-          array,
-          setArray,
-          incrementComparisons,
-          incrementSwaps,
-          delay,
-        );
+        await mergeSort(array, setArray, incrementComparisons, incrementSwaps, delay);
         break;
       case "quick-sort":
-        await quickSort(
-          array,
-          setArray,
-          incrementComparisons,
-          incrementSwaps,
-          delay,
-        );
+        await quickSort(array, setArray, incrementComparisons, incrementSwaps, delay);
         break;
       case "heap-sort":
-        await heapSort(
-          array,
-          setArray,
-          incrementComparisons,
-          incrementSwaps,
-          delay,
-        );
+        await heapSort(array, setArray, incrementComparisons, incrementSwaps, delay);
         break;
       case "tim-sort":
-        await heapSort(
-          array,
-          setArray,
-          incrementComparisons,
-          incrementSwaps,
-          delay,
-        );
+        await heapSort(array, setArray, incrementComparisons, incrementSwaps, delay);
         break;
       case "intro-sort":
-        await introSort(
-          array,
-          setArray,
-          incrementComparisons,
-          incrementSwaps,
-          delay,
-        );
+        await introSort(array, setArray, incrementComparisons, incrementSwaps, delay);
         break;
     }
 
@@ -154,19 +101,13 @@ const SortingVisualizer: React.FC<SortingVisualizerProps> = ({
       </div>
       <div className="mt-16 space-y-4">
         <SortingStats stats={stats} />
-        <SpeedControls
-          speed={speed}
-          onSpeedChange={handleSpeedChange}
-          disabled={isSorting}
-        />
+        <SpeedControls speed={speed} onSpeedChange={handleSpeedChange} disabled={isSorting} />
         <div className="flex justify-center gap-4">
           <button
             onClick={handleSort}
             disabled={isSorting}
             className={`flex items-center gap-2 px-6 py-3 rounded-lg text-white transition-colors ${
-              isSorting
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-500 hover:bg-blue-600"
+              isSorting ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
             }`}
           >
             Start Sorting
@@ -175,9 +116,7 @@ const SortingVisualizer: React.FC<SortingVisualizerProps> = ({
             onClick={handleReset}
             disabled={isSorting}
             className={`flex items-center gap-2 px-6 py-3 rounded-lg text-white transition-colors ${
-              isSorting
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gray-500 hover:bg-gray-600"
+              isSorting ? "bg-gray-400 cursor-not-allowed" : "bg-gray-500 hover:bg-gray-600"
             }`}
           >
             Reset Array

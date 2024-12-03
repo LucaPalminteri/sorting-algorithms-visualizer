@@ -47,7 +47,7 @@ Sorting Algorithms Visualizer is an interactive web application that helps users
 
 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/sorting-algorithms-visualizer.git
+git clone https://github.com/LucaPalminteri/sorting-algorithms-visualizer.git
 ```
 
 2. Navigate to the project directory
@@ -113,9 +113,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [Your Email]
+Luca Palminteri - [lucapalminteri02@gmail.com]
 
-Project Link: [https://github.com/your-username/sorting-algorithms-visualizer](https://github.com/your-username/sorting-algorithms-visualizer)
+Project Link: [https://github.com/LucaPalminteri/sorting-algorithms-visualizer](https://github.com/LucaPalminteri/sorting-algorithms-visualizer)
 
 ## Acknowledgements
 

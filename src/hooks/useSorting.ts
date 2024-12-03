@@ -9,7 +9,7 @@ export const useSorting = (initialArray: number[]) => {
       isComparing: false,
       isSorted: false,
       isSwapping: false,
-    }))
+    })),
   );
   const [speed, setSpeed] = useState(1);
 
@@ -20,7 +20,7 @@ export const useSorting = (initialArray: number[]) => {
         isComparing: false,
         isSorted: false,
         isSwapping: false,
-      }))
+      })),
     );
   }, []);
 

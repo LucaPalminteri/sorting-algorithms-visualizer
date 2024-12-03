@@ -11,11 +11,7 @@ export async function quickSort(
   const arr = [...array];
 
   // Partition function
-  async function partition(
-    arr: ArrayBar[],
-    low: number,
-    high: number,
-  ): Promise<number> {
+  async function partition(arr: ArrayBar[], low: number, high: number): Promise<number> {
     // Choose the rightmost element as pivot
     const pivot = arr[high];
     pivot.isComparing = true;
@@ -73,11 +69,7 @@ export async function quickSort(
   }
 
   // Recursive quick sort implementation
-  async function quickSortRecursive(
-    arr: ArrayBar[],
-    low: number,
-    high: number,
-  ) {
+  async function quickSortRecursive(arr: ArrayBar[], low: number, high: number) {
     if (low < high) {
       // Partition the array
       const pivotIndex = await partition(arr, low, high);

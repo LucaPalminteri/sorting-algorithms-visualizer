@@ -8,11 +8,7 @@ interface SpeedControlsProps {
   disabled: boolean;
 }
 
-const SpeedControls: React.FC<SpeedControlsProps> = ({
-  speed,
-  onSpeedChange,
-  disabled,
-}) => {
+const SpeedControls: React.FC<SpeedControlsProps> = ({ speed, onSpeedChange, disabled }) => {
   const speeds = [
     { value: 1, label: "1x" },
     { value: 1.5, label: "1.5x" },

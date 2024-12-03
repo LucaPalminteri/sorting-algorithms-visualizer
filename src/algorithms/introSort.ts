@@ -48,11 +48,7 @@ export async function introSort(
   }
 
   // Partition function (similar to quicksort)
-  async function partition(
-    arr: ArrayBar[],
-    low: number,
-    high: number,
-  ): Promise<number> {
+  async function partition(arr: ArrayBar[], low: number, high: number): Promise<number> {
     const pivot = arr[high];
     pivot.isComparing = true;
     setArray([...arr]);
@@ -189,12 +185,7 @@ export async function introSort(
   }
 
   // Recursive introsort implementation
-  async function introSortRecursive(
-    arr: ArrayBar[],
-    low: number,
-    high: number,
-    depth: number,
-  ) {
+  async function introSortRecursive(arr: ArrayBar[], low: number, high: number, depth: number) {
     // If array is small, use insertion sort
     if (high - low <= 16) {
       await insertionSort(arr, low, high);

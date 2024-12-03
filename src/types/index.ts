@@ -11,4 +11,23 @@ export interface SortingStats {
   steps: number;
 }
 
-export type SortingAlgorithm = "bubble" | "selection" | "insertion" | "merge" | "quick" | "heap" | "tim" | "intro";
+export interface AlgorithmInfo {
+  name: string;
+  category: string;
+  description: string;
+  timeComplexity: {
+    best: string;
+    average: string;
+    worst: string;
+  };
+}
+
+export type SortingAlgorithm =
+  | "bubble"
+  | "selection"
+  | "insertion"
+  | "merge"
+  | "quick"
+  | "heap"
+  | "tim"
+  | "intro";

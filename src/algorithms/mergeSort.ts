@@ -11,12 +11,7 @@ export async function mergeSort(
   const arr = [...array];
 
   // Merge function to combine two sorted subarrays
-  async function merge(
-    arr: ArrayBar[],
-    left: number,
-    mid: number,
-    right: number,
-  ) {
+  async function merge(arr: ArrayBar[], left: number, mid: number, right: number) {
     const leftArr = arr.slice(left, mid + 1);
     const rightArr = arr.slice(mid + 1, right + 1);
 
@@ -93,11 +88,7 @@ export async function mergeSort(
   }
 
   // Recursive merge sort implementation
-  async function mergeSortRecursive(
-    arr: ArrayBar[],
-    left: number,
-    right: number,
-  ) {
+  async function mergeSortRecursive(arr: ArrayBar[], left: number, right: number) {
     if (left >= right) return;
 
     const mid = Math.floor((left + right) / 2);

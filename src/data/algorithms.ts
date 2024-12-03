@@ -1,13 +1,4 @@
-export interface AlgorithmInfo {
-  name: string;
-  category: string;
-  description: string;
-  timeComplexity: {
-    best: string;
-    average: string;
-    worst: string;
-  };
-}
+import { AlgorithmInfo } from "@/types";
 
 export const algorithms: Record<string, AlgorithmInfo[]> = {
   "Simple Sorting Algorithms": [
@@ -88,7 +79,8 @@ export const algorithms: Record<string, AlgorithmInfo[]> = {
     {
       name: "Intro Sort",
       category: "advanced",
-      description: "Hybrid of quick sort and heap sort; switches to heap sort in worst-case scenarios.",
+      description:
+        "Hybrid of quick sort and heap sort; switches to heap sort in worst-case scenarios.",
       timeComplexity: {
         best: "O(n log n)",
         average: "O(n log n)",
