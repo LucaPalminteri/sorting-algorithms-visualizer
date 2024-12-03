@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { ArrayBar as ArrayBarType } from "../types";
 
 interface ArrayVisualizerProps {
@@ -17,10 +17,10 @@ const ArrayVisualizer: React.FC<ArrayVisualizerProps> = ({ array }) => {
             item.isComparing
               ? "bg-yellow-400"
               : item.isSwapping
-              ? "bg-red-500"
-              : item.isSorted
-              ? "bg-green-500"
-              : "bg-blue-500"
+                ? "bg-red-500"
+                : item.isSorted
+                  ? "bg-green-500"
+                  : "bg-blue-500"
           }`}
           style={{
             height: `${(item.value / maxValue) * 100}%`,

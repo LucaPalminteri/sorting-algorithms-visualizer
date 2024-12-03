@@ -1,6 +1,7 @@
-import React from "react";
+"use client";
+
+import { Activity, Repeat, ArrowUpDown } from "lucide-react";
 import { SortingStats as SortingStatsType } from "../types";
-import { Activity } from "lucide-react";
 
 interface SortingStatsProps {
   stats: SortingStatsType;
@@ -8,20 +9,28 @@ interface SortingStatsProps {
 
 const SortingStats: React.FC<SortingStatsProps> = ({ stats }) => {
   return (
-    <div className="flex items-center justify-center gap-4 bg-gray-50 p-4 rounded-lg">
-      <Activity className="text-gray-600" />
-      <div className="grid grid-cols-3 gap-8">
+    <div className="grid grid-cols-3 gap-4 bg-gray-50 p-4 rounded-lg">
+      <div className="flex items-center gap-3 justify-center">
+        <ArrowUpDown className="text-blue-600" size={20} />
         <div>
           <p className="text-sm text-gray-600">Comparisons</p>
-          <p className="text-2xl font-bold">{stats.comparisons}</p>
+          <p className="text-2xl font-bold text-blue-600">
+            {stats.comparisons}
+          </p>
         </div>
+      </div>
+      <div className="flex items-center gap-3 justify-center">
+        <Repeat className="text-green-600" size={20} />
         <div>
           <p className="text-sm text-gray-600">Swaps</p>
-          <p className="text-2xl font-bold">{stats.swaps}</p>
+          <p className="text-2xl font-bold text-green-600">{stats.swaps}</p>
         </div>
+      </div>
+      <div className="flex items-center gap-3 justify-center">
+        <Activity className="text-purple-600" size={20} />
         <div>
           <p className="text-sm text-gray-600">Total Steps</p>
-          <p className="text-2xl font-bold">{stats.steps}</p>
+          <p className="text-2xl font-bold text-purple-600">{stats.steps}</p>
         </div>
       </div>
     </div>

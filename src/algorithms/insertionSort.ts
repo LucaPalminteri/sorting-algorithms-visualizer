@@ -5,11 +5,11 @@ export async function insertionSort(
   array: ArrayBar[],
   setArray: (arr: ArrayBar[]) => void,
   incrementComparisons: () => void,
-  incrementSwaps: () => void
+  incrementSwaps: () => void,
+  delay: number,
 ) {
   const arr = [...array];
   const n = arr.length;
-  const delay = 50;
 
   arr[0].isSorted = true;
   setArray([...arr]);

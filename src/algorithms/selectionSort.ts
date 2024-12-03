@@ -5,11 +5,11 @@ export async function selectionSort(
   array: ArrayBar[],
   setArray: (arr: ArrayBar[]) => void,
   incrementComparisons: () => void,
-  incrementSwaps: () => void
+  incrementSwaps: () => void,
+  delay: number,
 ) {
   const arr = [...array];
   const n = arr.length;
-  const delay = 50;
 
   for (let i = 0; i < n - 1; i++) {
     let minIdx = i;

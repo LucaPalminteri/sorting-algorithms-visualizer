@@ -1,15 +1,15 @@
-import { ArrayBar } from "@/types";
-import { sleep } from "@/utils/arrayUtils";
+import { ArrayBar } from "../types";
+import { sleep } from "../utils/arrayUtils";
 
 export async function bubbleSort(
   array: ArrayBar[],
   setArray: (arr: ArrayBar[]) => void,
   incrementComparisons: () => void,
-  incrementSwaps: () => void
+  incrementSwaps: () => void,
+  delay: number,
 ) {
   const arr = [...array];
   const n = arr.length;
-  const delay = 50;
 
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n - i - 1; j++) {

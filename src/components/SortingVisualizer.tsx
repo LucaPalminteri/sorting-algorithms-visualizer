@@ -4,25 +4,31 @@ import { useState, useCallback } from "react";
 import { generateRandomArray } from "../utils/arrayUtils";
 import { useSortingStats } from "../hooks/useSortingStats";
 import ArrayVisualizer from "./ArrayVisualizer";
+import SortingStats from "./SortingStats";
+import TimeComplexity from "./TimeComplexity";
+import SpeedControls from "./SpeedControls";
 import { bubbleSort } from "../algorithms/bubbleSort";
 import { selectionSort } from "../algorithms/selectionSort";
 import { insertionSort } from "../algorithms/insertionSort";
+import { mergeSort } from "@/algorithms/mergeSort";
 import { ArrayBar } from "../types";
 import { AlgorithmInfo } from "../data/algorithms";
-import TimeComplexity from "./TimeComplexity";
-import SortingStats from "./SortingStats";
+import { quickSort } from "@/algorithms/quickSort";
+import { heapSort } from "@/algorithms/heapSort";
+import { introSort } from "@/algorithms/introSort";
 
 const ARRAY_SIZE = 50;
+const BASE_DELAY = 50;
 
 interface SortingVisualizerProps {
   algorithm: string;
   algorithmInfo: AlgorithmInfo;
 }
 
-export default function SortingVisualizer({
+const SortingVisualizer: React.FC<SortingVisualizerProps> = ({
   algorithm,
   algorithmInfo,
-}: SortingVisualizerProps) {
+}) => {
   const [array, setArray] = useState<ArrayBar[]>(
     generateRandomArray(ARRAY_SIZE).map((value) => ({
       value,
@@ -32,6 +38,7 @@ export default function SortingVisualizer({
     })),
   );
   const [isSorting, setIsSorting] = useState(false);
+  const [speed, setSpeed] = useState(1);
   const { stats, resetStats, incrementComparisons, incrementSwaps } =
     useSortingStats();
 
@@ -51,9 +58,17 @@ export default function SortingVisualizer({
     setIsSorting(true);
     resetStats();
 
+    const delay = BASE_DELAY / speed;
+
     switch (algorithm) {
       case "bubble-sort":
-        await bubbleSort(array, setArray, incrementComparisons, incrementSwaps);
+        await bubbleSort(
+          array,
+          setArray,
+          incrementComparisons,
+          incrementSwaps,
+          delay,
+        );
         break;
       case "selection-sort":
         await selectionSort(
@@ -61,6 +76,7 @@ export default function SortingVisualizer({
           setArray,
           incrementComparisons,
           incrementSwaps,
+          delay,
         );
         break;
       case "insertion-sort":
@@ -69,11 +85,61 @@ export default function SortingVisualizer({
           setArray,
           incrementComparisons,
           incrementSwaps,
+          delay,
+        );
+        break;
+      case "merge-sort":
+        await mergeSort(
+          array,
+          setArray,
+          incrementComparisons,
+          incrementSwaps,
+          delay,
+        );
+        break;
+      case "quick-sort":
+        await quickSort(
+          array,
+          setArray,
+          incrementComparisons,
+          incrementSwaps,
+          delay,
+        );
+        break;
+      case "heap-sort":
+        await heapSort(
+          array,
+          setArray,
+          incrementComparisons,
+          incrementSwaps,
+          delay,
+        );
+        break;
+      case "tim-sort":
+        await heapSort(
+          array,
+          setArray,
+          incrementComparisons,
+          incrementSwaps,
+          delay,
+        );
+        break;
+      case "intro-sort":
+        await introSort(
+          array,
+          setArray,
+          incrementComparisons,
+          incrementSwaps,
+          delay,
         );
         break;
     }
 
     setIsSorting(false);
+  };
+
+  const handleSpeedChange = (newSpeed: number) => {
+    setSpeed(newSpeed);
   };
 
   return (
@@ -86,8 +152,13 @@ export default function SortingVisualizer({
       <div className="h-[200px] mt-6">
         <ArrayVisualizer array={array} />
       </div>
-      <div className="mt-10 space-y-4">
+      <div className="mt-16 space-y-4">
         <SortingStats stats={stats} />
+        <SpeedControls
+          speed={speed}
+          onSpeedChange={handleSpeedChange}
+          disabled={isSorting}
+        />
         <div className="flex justify-center gap-4">
           <button
             onClick={handleSort}
@@ -115,4 +186,6 @@ export default function SortingVisualizer({
       </div>
     </div>
   );
-}
+};
+
+export default SortingVisualizer;
