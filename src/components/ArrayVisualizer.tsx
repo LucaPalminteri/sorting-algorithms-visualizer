@@ -9,7 +9,7 @@ const ArrayVisualizer: React.FC<ArrayVisualizerProps> = ({ array }) => {
   const maxValue = Math.max(...array.map((item) => item.value));
 
   return (
-    <div className="flex items-end justify-center h-64 gap-1 p-4">
+    <div className="flex items-end justify-center h-64 md:gap-1 md:p-4">
       {array.map((item, index) => (
         <div
           key={index}
@@ -24,6 +24,7 @@ const ArrayVisualizer: React.FC<ArrayVisualizerProps> = ({ array }) => {
           }`}
           style={{
             height: `${(item.value / maxValue) * 100}%`,
+            border: "1px solid white",
           }}
         />
       ))}
