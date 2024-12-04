@@ -17,7 +17,7 @@ import { heapSort } from "@/algorithms/heapSort";
 import { introSort } from "@/algorithms/introSort";
 
 const ARRAY_SIZE = 50;
-const BASE_DELAY = 50;
+const BASE_DELAY = 200;
 
 interface SortingVisualizerProps {
   algorithm: string;

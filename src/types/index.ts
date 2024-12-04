@@ -15,6 +15,7 @@ export interface AlgorithmInfo {
   name: string;
   category: string;
   description: string;
+  largeDescription: string;
   timeComplexity: {
     best: string;
     average: string;

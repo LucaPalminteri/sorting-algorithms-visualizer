@@ -34,7 +34,9 @@ export default function AlgorithmPage({ params }: PageProps) {
         <div className="space-y-6">
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h1 className="text-2xl md:text-3xl font-bold mb-4">{algorithmInfo.name}</h1>
-            <p className="text-gray-600 mb-4 text-sm md:text-base">{algorithmInfo.description}</p>
+            <p className="text-gray-600 mb-4 text-sm md:text-base">
+              {algorithmInfo.largeDescription}
+            </p>
           </div>
           <SortingVisualizer algorithm={algorithm} algorithmInfo={algorithmInfo} />
         </div>
